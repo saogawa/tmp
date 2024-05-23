@@ -503,14 +503,14 @@ configure cflowd overflow 10
 configure cflowd active-flow-timeout 30
 configure cflowd inactive-flow-timeout 10
 configure cflowd sample-profile 1 sample-rate 100
-configure cflowd collector 192.168.1.254 port 5000 description "Neighbor collector"
-configure cflowd collector 192.168.1.254 port 5000 autonomous-system-type peer
-configure cflowd collector 192.168.1.254 port 5000 version 8
-configure cflowd collector 192.168.1.254 port 5000 aggregation protocol-port true
-configure cflowd collector 192.168.1.254 port 5000 aggregation source-destination-prefix true
-configure cflowd collector 192.168.1.254 port 2000 description "v9collector"
-configure cflowd collector 192.168.1.254 port 2000 template-set mpls-ip
-configure cflowd collector 192.168.1.254 port 2000 version 9
+configure cflowd collector 192.168.2.254 port 5000 description "Neighbor collector"
+configure cflowd collector 192.168.2.254 port 5000 autonomous-system-type peer
+configure cflowd collector 192.168.2.254 port 5000 version 8
+configure cflowd collector 192.168.2.254 port 5000 aggregation protocol-port true
+configure cflowd collector 192.168.2.254 port 5000 aggregation source-destination-prefix true
+configure cflowd collector 192.168.2.254 port 2000 description "v9collector"
+configure cflowd collector 192.168.2.254 port 2000 template-set mpls-ip
+configure cflowd collector 192.168.2.254 port 2000 version 9
 configure router "Base" interface "To-Peering-LAN" cflowd-parameters sampling unicast type interface
 ```
 
@@ -567,9 +567,9 @@ Version Status                   Sent                 Open               Errors
 ## RPKI設定
 
 ```jsx
-configure router "Base" origin-validation rpki-session 192.168.1.5 admin-state enable
-configure router "Base" origin-validation rpki-session 192.168.1.5 local-address 192.168.1.1
-configure router "Base" origin-validation rpki-session 192.168.1.5 port 8282
+configure router "Base" origin-validation rpki-session 192.168.2.5 admin-state enable
+configure router "Base" origin-validation rpki-session 192.168.2.5 local-address 192.168.2.1
+configure router "Base" origin-validation rpki-session 192.168.2.5 port 8282
 configure router "Base" bgp group "eBGP-Peering" origin-validation ipv4 true
 configure router "Base" bgp group "eBGP-Peering" origin-validation ipv6 true
 configure router "Base" bgp best-path-selection origin-invalid-unusable true
@@ -602,14 +602,14 @@ No. of Sessions    : 1
 ```jsx
 configure router "Base" bgp group "ddos" peer-as 65000
 configure router "Base" bgp group "ddos" local-as as-number 65000
-configure router "Base" bgp neighbor "192.168.1.4" group "ddos"
-configure router "Base" bgp neighbor "192.168.1.4" type internal
-configure router "Base" bgp neighbor "192.168.1.4" peer-as 65000
-configure router "Base" bgp neighbor "192.168.1.4" family ipv4 true
-configure router "Base" bgp neighbor "192.168.1.4" family ipv6 false
-configure router "Base" bgp neighbor "192.168.1.4" family flow-ipv4 true
-configure router "Base" bgp neighbor "192.168.1.4" family flow-ipv6 false
-configure router "Base" bgp neighbor "192.168.1.4" family ipv4 ipv6 flow-ipv4 flow-ipv6 true
+configure router "Base" bgp neighbor "192.168.2.4" group "ddos"
+configure router "Base" bgp neighbor "192.168.2.4" type internal
+configure router "Base" bgp neighbor "192.168.2.4" peer-as 65000
+configure router "Base" bgp neighbor "192.168.2.4" family ipv4 true
+configure router "Base" bgp neighbor "192.168.2.4" family ipv6 false
+configure router "Base" bgp neighbor "192.168.2.4" family flow-ipv4 true
+configure router "Base" bgp neighbor "192.168.2.4" family flow-ipv6 false
+configure router "Base" bgp neighbor "192.168.2.4" family ipv4 ipv6 flow-ipv4 flow-ipv6 true
 configure filter ip-filter "FSPEC-filter" default-action accept
 configure filter ip-filter "FSPEC-filter" filter-id 99
 configure filter ip-filter "FSPEC-filter" embed flowspec offset 1000 router-instance "Base"
@@ -749,10 +749,10 @@ Egr. Matches        : 0 pkts
 /configure log log-id "92" source security true
 /configure log log-id "92" source change true
 /configure log log-id "92" destination file "1"
-/configure log snmp-trap-group "90" trap-target "1" address 192.168.1.254
+/configure log snmp-trap-group "90" trap-target "1" address 192.168.2.254
 /configure log snmp-trap-group "90" trap-target "1" version snmpv2c
 /configure log snmp-trap-group "90" trap-target "1" notify-community "public"
-/configure log syslog "syslog_server" address 192.168.1.254
+/configure log syslog "syslog_server" address 192.168.2.254
 /configure log syslog "syslog_server" facility local4
 /configure log syslog "syslog_server" hostname value "SR1"
 ```
