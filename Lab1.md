@@ -227,6 +227,7 @@ No. of Neighbors: 0
 ## iBGP eBGP設定
 
 ```jsx
+    /configure router "Base" autonomous-system 65000
     /configure router "Base" bgp router-id 10.0.0.1
     /configure router "Base" bgp ebgp-default-reject-policy import false
     /configure router "Base" bgp ebgp-default-reject-policy export false
