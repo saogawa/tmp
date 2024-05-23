@@ -92,8 +92,8 @@ configure router "Base" interface "To-LAN" port 1/1/c2/1
 configure router "Base" interface "To-LAN" ipv4 primary address 192.168.10.1
 configure router "Base" interface "To-LAN" ipv4 primary prefix-length 30
 configure router "Base" interface "To-LAN" ipv6 address 2000:1:10::1 prefix-length 64
-configure router "Base" interface "system" ipv4 primary address 10.0.0.2 prefix-length 32
-configure router "Base" interface "system" ipv6 address 3000::2 prefix-length 128
+configure router "Base" interface "system" ipv4 primary address 10.0.0.1 prefix-length 32
+configure router "Base" interface "system" ipv6 address 3000::1 prefix-length 128
 ```
 
 ```jsx
