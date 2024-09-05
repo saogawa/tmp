@@ -1,5 +1,5 @@
 <details>
-  <summary>Hierarchical Configuration</summary>
+  <summary>階層化コンフィグ</summary>
 
   ```python
   def hello_world():
@@ -9,7 +9,7 @@
 </details>
 
 <details>
-  <summary>Flat Configuration</summary>
+  <summary>フラットコンフィグ</summary>
 
   ```python
   def hello_world():
