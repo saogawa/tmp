@@ -105,26 +105,37 @@ Slot  Mda   Provisioned Type                            Admin     Operational
 
 ---
 
-・設定
+### ・ 設定変更
+
+<details>
+<summary>階層化コンフィグ</summary>
 
 ```bash
-(ex)[/]
-A:admin@r3# admin show configuration /configure system time
-    zone {
-        non-standard {
-            name "jst"
-            offset "09:00"
+configure {
+    system {
+        time {
+            zone {
+                non-standard {
+                    name "jst"
+                    offset "09:00"
+                }
+            }
+            ntp {
+                admin-state enable
+                peer 172.20.20.1 router-instance "management" {
+                    version 4
+                    prefer true
+                }
+            }
         }
     }
-    ntp {
-        admin-state enable
-        peer 172.20.20.1 router-instance "management" {
-            version 4
-            prefer true
-        }
-	  }
-
+}
 ```
+
+</details>
+
+<details>
+<summary>フラットコンフィグ</summary>
 
 ```bash
     /configure system time zone non-standard name "jst"
@@ -135,7 +146,14 @@ A:admin@r3# admin show configuration /configure system time
 
 ```
 
-・確認
+### ・ 確認コマンド
+
+```bash
+show ntp peers
+```
+
+<details>
+<summary>出力</summary>
 
 ```bash
 (ex)[/]
@@ -158,8 +176,9 @@ vRouter                                                    Time Last Request Rx
     Address
 -------------------------------------------------------------------------------
 ===============================================================================
-
 ```
+
+</details>
 
 ## SNMP Trap
 
