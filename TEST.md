@@ -1,5 +1,5 @@
 <details>
-  <summary>Python Code</summary>
+  <summary>Hierarchical Configuration</summary>
 
   ```python
   def hello_world():
@@ -9,7 +9,7 @@
 </details>
 
 <details>
-  <summary>Hoge Code</summary>
+  <summary>Flat Configuration</summary>
 
   ```python
   def hello_world():
