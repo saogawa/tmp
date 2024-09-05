@@ -1,1 +1,20 @@
-![image](https://github.com/user-attachments/assets/04a7ca70-b47c-457d-8b09-dc712fb947fd)
+<details>
+  <summary>Python Code</summary>
+
+  ```python
+  def hello_world():
+      print("Hello, World1!")
+  ```
+
+</details>
+
+<details>
+  <summary>Hoge Code</summary>
+
+  ```python
+  def hello_world():
+      print("Hello, World2!")
+  ```
+
+</details>
+
